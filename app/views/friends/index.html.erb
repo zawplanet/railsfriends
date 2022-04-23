@@ -1,0 +1,45 @@
+<% if user_signed_in? %>
+
+  <div id="friends">
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col"><strong>Name:</strong></th>
+        <th scope="col"><strong>Email:</strong></th>
+        <th scope="col"><strong>Phone:</strong></th>
+        <th scope="col"><strong>Twitter:</strong></th>
+        <th scope="col"><strong>User Id:</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% @friends.each do |friend| %>
+      <tr>
+        <th scope="row"></th>
+        <td><%= link_to friend.first_name + " " + friend.last_name, friend %></td>
+        <td><%= friend.email %></td>
+        <td><%= friend.phone %></td>
+        <td><%= friend.twitter %></td>
+        <td><%= friend.user_id %></td>
+      </tr>
+    	<% end %>
+      
+    </tbody>
+  </table>
+  </div>
+
+  <%= link_to "New friend", new_friend_path %>
+<% else %>
+  
+  <h1>Hello World</h1>
+  This is my first rails webpage
+
+<% end %>
+
+
+
+
+
+
+
+
